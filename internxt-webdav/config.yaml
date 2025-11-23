@@ -27,10 +27,3 @@ schema:
   otptoken: password?
   webdavport: port
   webdavprotocol: list(http|https)
-environment:
-  INXT_USER: "{{ .user }}"
-  INXT_PASSWORD: "{{ .password }}"
-  INXT_TWOFACTORCODE: "{{ .twofactorcode }}"
-  INXT_OTPTOKEN: "{{ .otptoken }}"
-  WEBDAV_PORT: "{{ .webdavport }}"
-  WEBDAV_PROTOCOL: "{{ .webdavprotocol }}"
