@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.0.3
+
+- seperate webdav and healthcheck logic
+
 # 1.0.2
 
 - fix nginx authentication
