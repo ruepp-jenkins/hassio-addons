@@ -27,8 +27,8 @@ This add-on allows you to mount your Internxt Drive as a WebDAV server, making i
 
 If you have 2FA enabled on your Internxt account, you have two options:
 
-1. **One-time code**: Enter the current code in `two_factor_code` (requires manual update)
-2. **OTP token**: Enter your OTP secret in `otp_token` for automatic code generation
+1. **One-time code**: Enter the current code in `twofactorcode` (requires manual update)
+2. **OTP token**: Enter your OTP secret in `otptoken` for automatic code generation
 
 ## Support
 
