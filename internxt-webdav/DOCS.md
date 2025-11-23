@@ -1,37 +1,75 @@
 # Internxt WebDAV Add-on
 
-This add-on allows you to mount your Internxt Drive as a WebDAV server, making it accessible to other applications and devices on your network.
+Mount your Internxt Drive as a WebDAV server for easy file access from Home Assistant and other devices on your network.
 
 ## Configuration
 
-### Required Options
+### Required
 
-- **email**: Your Internxt account email address
-- **password**: Your Internxt account password
+| Option | Description |
+|--------|-------------|
+| Email | Your Internxt account email address |
+| Password | Your Internxt account password |
 
-### Optional Options
+### Optional
 
-- **two_factor_code**: Current 2FA one-time code (if 2FA is enabled)
-- **otp_token**: OTP secret for automatic 2FA code generation
-- **webdav_port**: WebDAV server port (default: 3005)
-- **webdav_protocol**: Protocol to use - `http` or `https` (default: https)
+| Option | Description | Default |
+|--------|-------------|---------|
+| Two-Factor Code | Current 2FA one-time code (if enabled) | - |
+| OTP Token | OTP secret for automatic 2FA code generation | - |
+| WebDAV Port | Internal WebDAV server port | 3005 |
+| WebDAV Protocol | Protocol for internal server (`http` or `https`) | http |
+| WebDAV Username | Username for external access authentication | webdav |
+| WebDAV Password | Password for external access authentication | - |
 
 ## Usage
 
 1. Install the add-on
 2. Configure your Internxt credentials
 3. Start the add-on
-4. Connect to the WebDAV server at `https://your-ha-ip:3005`
+
+### Internal Usage (Home Assistant Backups)
+
+Use this method to store Home Assistant backups on your Internxt Drive.
+
+**Setup:**
+
+1. Go to the add-on info page and copy the hostname (e.g., `1234b6b8-ix-webdav`)
+2. Add a new network storage location in Home Assistant with these settings:
+
+| Setting | Value |
+|---------|-------|
+| URL | `http://1234b6b8-ix-webdav:3005` (replace with your hostname) |
+| Username | Any value (e.g., `internxt-backup`) - displayed in the list only |
+| Password | Any value - not validated by the internal server |
+| Backup Path | Folder path on Internxt (e.g., `/backups/homeassistant`) |
+| SSL | Unchecked (internal traffic uses HTTP) |
+
+### External Access (Experimental)
+
+Expose Internxt WebDAV to your home network with authentication protection.
+
+**Setup:**
+
+1. Go to the add-on configuration page
+2. Set **WebDAV Username** and **WebDAV Password**
+3. Enable and configure the port mapping (disabled by default)
+4. Connect using `http://homeassistant.local:3006` (or your chosen port)
+
+**Note:** External access only supports HTTP connections. The WebDAV Protocol setting only affects the internal server used by Home Assistant.
 
 ## Two-Factor Authentication
 
-If you have 2FA enabled on your Internxt account, you have two options:
+If 2FA is enabled on your Internxt account:
 
-1. **One-time code**: Enter the current code in `twofactorcode` (requires manual update)
-2. **OTP token**: Enter your OTP secret in `otptoken` for automatic code generation
+| Method | Field | Notes |
+|--------|-------|-------|
+| One-time code | Two-Factor Code | Requires manual update each time - not recommended |
+| OTP secret | OTP Token | Automatic code generation - recommended |
 
 ## Support
 
-For issues related to:
-- **This add-on**: Report on the add-on repository
-- **Internxt WebDAV**: Visit [Internxt CLI GitHub](https://github.com/internxt/cli)
+| Issue Type | Where to Report |
+|------------|-----------------|
+| Add-on issues | [Add-on Repository](https://github.com/MyUncleSam/hassio-addons) |
+| Internxt WebDAV bugs | [Internxt CLI GitHub](https://github.com/internxt/cli) |

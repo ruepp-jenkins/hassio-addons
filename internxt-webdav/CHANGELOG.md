@@ -1,5 +1,10 @@
 # Changelog
 
+# 1.0.4
+
+- switch to use WebDAV internal directly from the InternXT image
+- document how to use the internal WebDAV and the exposed WebDAV
+
 # 1.0.3
 
 - seperate webdav and healthcheck logic
