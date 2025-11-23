@@ -1,6 +1,6 @@
 name: "Internxt WebDAV"
 description: "Mount your Internxt Drive as a WebDAV server for easy file access"
-version: "1.0.0"
+version: "1.0.1"
 slug: "ix_webdav"
 url: "https://github.com/MyUncleSam/hassio-addons"
 startup: services
@@ -20,6 +20,8 @@ options:
   otptoken: ""
   webdavport: 3005
   webdavprotocol: http
+  webdav_user: "webdav"
+  webdav_password: ""
 schema:
   user: email
   password: password
@@ -27,3 +29,6 @@ schema:
   otptoken: password?
   webdavport: port
   webdavprotocol: list(http|https)
+  webdav_user: str
+  webdav_password: password
+watchdog: "http://[HOST]:[PORT:3005]/"

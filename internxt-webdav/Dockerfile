@@ -1,8 +1,11 @@
 ARG BUILD_FROM=internxt/webdav:latest
 FROM ${BUILD_FROM}
 
-# Install jq to read Home Assistant config
-RUN apk add --no-cache jq
+# Install jq, nginx, and apache2-utils for htpasswd
+RUN apk add --no-cache jq nginx apache2-utils
+
+# Copy nginx config
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy run script
 COPY run.sh /run.sh

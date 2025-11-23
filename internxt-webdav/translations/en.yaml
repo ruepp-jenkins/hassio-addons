@@ -17,3 +17,9 @@ configuration:
   webdavprotocol:
     name: Protocol
     description: WebDAV protocol (http or https)
+  webdav_user:
+    name: WebDAV Username
+    description: Username for WebDAV authentication
+  webdav_password:
+    name: WebDAV Password
+    description: Password for WebDAV authentication
