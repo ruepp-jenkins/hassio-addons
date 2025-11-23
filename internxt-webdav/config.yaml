@@ -1,15 +1,16 @@
 name: "Internxt WebDAV"
 description: "Mount your Internxt Drive as a WebDAV server for easy file access"
-version: 0.0.1
-slug: "internxt-webdav"
+version: "1.0.0"
+slug: "ix_webdav"
 url: "https://github.com/MyUncleSam/hassio-addons"
-panel_icon: mdi:earth-arrow-up
+startup: services
+boot: auto
 arch:
   - "amd64"
   - "aarch64"
 init: false
 ports:
-  3005/tcp: "127.0.0.1:3005"
+  3005/tcp: "3005"
 ports_description:
   3005/tcp: "WebDAV server port"
 options:
@@ -33,5 +34,3 @@ environment:
   INXT_OTPTOKEN: "{{ .otptoken }}"
   WEBDAV_PORT: "{{ .webdavport }}"
   WEBDAV_PROTOCOL: "{{ .webdavprotocol }}"
-startup: application
-boot: auto
