@@ -16,8 +16,8 @@ ports_description:
 options:
   user: ""
   password: ""
-  twofactorcode: null
-  otptoken: null
+  twofactorcode: ""
+  otptoken: ""
   webdavport: 3005
   webdavprotocol: http
 schema:
