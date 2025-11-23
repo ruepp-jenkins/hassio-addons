@@ -11,12 +11,6 @@ configuration:
   otptoken:
     name: OTP Token
     description: OTP secret for automatic 2FA code generation
-  webdavport:
-    name: WebDAV Port
-    description: Port for the WebDAV server
-  webdavprotocol:
-    name: Protocol
-    description: WebDAV protocol (http or https)
   webdav_user:
     name: WebDAV Username
     description: Username for WebDAV authentication

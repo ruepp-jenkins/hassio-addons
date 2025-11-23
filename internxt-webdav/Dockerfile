@@ -12,7 +12,7 @@ COPY run.sh /run.sh
 RUN chmod a+x /run.sh
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
-    CMD wget -q --spider http://127.0.0.1:3006/ || exit 1
+    CMD wget -q --spider http://127.0.0.1:3005/ || exit 1
 
 ENTRYPOINT []
 CMD [ "/run.sh" ]

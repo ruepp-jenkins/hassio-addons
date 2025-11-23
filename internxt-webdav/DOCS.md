@@ -17,8 +17,6 @@ Mount your Internxt Drive as a WebDAV server for easy file access from Home Assi
 |--------|-------------|---------|
 | Two-Factor Code | Current 2FA one-time code (if enabled) | - |
 | OTP Token | OTP secret for automatic 2FA code generation | - |
-| WebDAV Port | Internal WebDAV server port | 3005 |
-| WebDAV Protocol | Protocol for internal server (`http` or `https`) | http |
 | WebDAV Username | Username for external access authentication | webdav |
 | WebDAV Password | Password for external access authentication | - |
 
@@ -53,10 +51,10 @@ Expose Internxt WebDAV to your home network with authentication protection.
 
 1. Go to the add-on configuration page
 2. Set **WebDAV Username** and **WebDAV Password**
-3. Enable and configure the port mapping (disabled by default)
-4. Connect using `http://homeassistant.local:3006` (or your chosen port)
+3. Enable the port mapping on port 3006 (disabled by default)
+4. Connect using `http://homeassistant.local:3006`
 
-**Note:** External access only supports HTTP connections. The WebDAV Protocol setting only affects the internal server used by Home Assistant.
+**Note:** External access only supports HTTP connections. If you have choosen a differnt port to map than 3006 you need to specify this port.
 
 ## Two-Factor Authentication
 
