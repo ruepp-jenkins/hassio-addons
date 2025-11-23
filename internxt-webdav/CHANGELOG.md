@@ -1,5 +1,13 @@
 # Changelog
 
+# 1.0.6
+
+- fix healthchecks as calling webdav is not working
+
+# 1.0.5
+
+- made ports static
+
 # 1.0.4
 
 - switch to use WebDAV internal directly from the InternXT image
