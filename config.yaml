@@ -1,0 +1,38 @@
+name: Internxt WebDAV
+description: Mount your Internxt Drive as a WebDAV server for easy file access
+version: 1.0.0
+slug: internxt-webdav
+url: https://github.com/internxt/cli
+arch:
+  - amd64
+  - aarch64
+init: false
+ports:
+  3005/tcp: 3005
+ports_description:
+  3005/tcp: WebDAV server port
+options:
+  email: ""
+  password: ""
+  two_factor_code: ""
+  otp_token: ""
+  webdav_port: 3005
+  webdav_protocol: https
+schema:
+  email: email
+  password: password
+  two_factor_code: str?
+  otp_token: str?
+  webdav_port: port
+  webdav_protocol: list(http|https)
+startup: application
+boot: auto
+map:
+  - share:rw
+environment:
+  INXT_USER: "{{ .email }}"
+  INXT_PASSWORD: "{{ .password }}"
+  INXT_TWOFACTORCODE: "{{ .two_factor_code }}"
+  INXT_OTPTOKEN: "{{ .otp_token }}"
+  WEBDAV_PORT: "{{ .webdav_port }}"
+  WEBDAV_PROTOCOL: "{{ .webdav_protocol }}"
