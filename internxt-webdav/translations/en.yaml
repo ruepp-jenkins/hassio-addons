@@ -1,19 +1,19 @@
 configuration:
-  email:
+  user:
     name: Email
     description: Your Internxt account email address
   password:
     name: Password
     description: Your Internxt account password
-  two_factor_code:
+  twofactorcode:
     name: Two-Factor Code
     description: Current 2FA one-time code (if enabled)
-  otp_token:
+  otptoken:
     name: OTP Token
     description: OTP secret for automatic 2FA code generation
-  webdav_port:
+  webdavport:
     name: WebDAV Port
     description: Port for the WebDAV server
-  webdav_protocol:
+  webdavprotocol:
     name: Protocol
     description: WebDAV protocol (http or https)

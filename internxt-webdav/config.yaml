@@ -1,29 +1,36 @@
-name: Internxt WebDAV
-description: Mount your Internxt Drive as a WebDAV server for easy file access
-version: 1.0.2
-slug: internxt-webdav
-url: https://github.com/internxt/cli
+name: "Internxt WebDAV"
+description: "Mount your Internxt Drive as a WebDAV server for easy file access"
+version: 0.0.1
+slug: "internxt-webdav"
+url: "https://github.com/MyUncleSam/hassio-addons"
 arch:
-  - amd64
-  - aarch64
+  - "amd64"
+  - "aarch64"
 init: false
 ports:
-  3005/tcp: 3005
+  3005/tcp: "127.0.0.1:3005"
 ports_description:
-  3005/tcp: WebDAV server port
+  3005/tcp: "WebDAV server port"
 options:
-  INXT_USER: ""
-  INXT_PASSWORD: ""
-  INXT_TWOFACTORCODE: ""
-  INXT_OTPTOKEN: ""
-  WEBDAV_PORT: 3005
-  WEBDAV_PROTOCOL: https
+  user: ""
+  password: ""
+  twofactorcode: null
+  otptoken: null
+  webdavport: 3005
+  webdavprotocol: http
 schema:
-  INXT_USER: email
-  INXT_PASSWORD: password
-  INXT_TWOFACTORCODE: password
-  INXT_OTPTOKEN: password
-  WEBDAV_PORT: port
-  WEBDAV_PROTOCOL: list(http|https)
+  user: email
+  password: password
+  twofactorcode: password?
+  otptoken: password?
+  webdavport: port
+  webdavprotocol: list(http|https)
+environment:
+  INXT_USER: "{{ .user }}"
+  INXT_PASSWORD: "{{ .password }}"
+  INXT_TWOFACTORCODE: "{{ .twofactorcode }}"
+  INXT_OTPTOKEN: "{{ .otptoken }}"
+  WEBDAV_PORT: "{{ .webdavport }}"
+  WEBDAV_PROTOCOL: "{{ .webdavprotocol }}"
 startup: application
 boot: auto
