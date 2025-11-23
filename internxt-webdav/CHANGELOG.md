@@ -1,5 +1,9 @@
 # Changelog
 
+# 1.0.7
+
+- avoid backing up the image which bloats the backup
+
 # 1.0.6
 
 - fix healthchecks as calling webdav is not working
