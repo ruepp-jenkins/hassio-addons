@@ -90,7 +90,7 @@ echo "✓ Updated CHANGELOG.md"
 cd "$REPO_ROOT"
 
 git add "$ADDON_PATH/build.yaml" "$ADDON_PATH/config.yaml" "$ADDON_PATH/CHANGELOG.md"
-git commit -m "chore: update ${ADDON_FOLDER} to base image ${LATEST_TAG}"
+git commit -m "ci: update ${ADDON_FOLDER} to base image ${LATEST_TAG}"
 git push origin master
 
 echo "✓ Committed and pushed changes"
