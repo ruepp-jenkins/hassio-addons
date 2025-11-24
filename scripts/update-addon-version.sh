@@ -23,13 +23,13 @@ fi
 
 echo "Checking for updates to $DOCKER_IMAGE..."
 
-# Get latest semantic version tag from Docker Hub (excluding 'latest')
+# Get latest tag from Docker Hub (excluding 'latest', sorted by last_updated)
 LATEST_TAG=$(curl -s "https://hub.docker.com/v2/repositories/${DOCKER_IMAGE}/tags?page_size=100" | \
-    jq -r '.results[] | select(.name | test("^[0-9]+\\.[0-9]+\\.[0-9]+$")) | .name' | \
-    sort -V | tail -1)
+    jq -r '.results[] | select(.name != "latest") | {name: .name, updated: .last_updated} | [.updated, .name] | @tsv' | \
+    sort -r | head -1 | cut -f2)
 
 if [ -z "$LATEST_TAG" ] || [ "$LATEST_TAG" = "null" ]; then
-    echo "Error: Could not find valid semantic version tag for $DOCKER_IMAGE"
+    echo "Error: Could not find valid tag for $DOCKER_IMAGE"
     exit 1
 fi
 
