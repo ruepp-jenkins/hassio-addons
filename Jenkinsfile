@@ -9,6 +9,8 @@ properties(
 )
 
 pipeline {
+    agent any
+
     triggers {
         cron('0 3 * * *')  // Run daily at 3:00 AM
     }
