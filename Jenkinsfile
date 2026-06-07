@@ -30,22 +30,9 @@ pipeline {
         }
         stage('Check Addons') {
             steps {
-                script {
-                    // Define addon mappings: [docker-image: addon-folder]
-                    def addons = [
-                        'internxt/webdav': 'internxt-webdav'
-                    ]
-
-                    // Use git credentials binding (cleaner approach)
-                    withCredentials([gitUsernamePassword(credentialsId: 'ruepp-jenkins', gitToolName: 'Default')]) {
-                        // Loop through each addon
-                        addons.each { dockerImage, addonFolder ->
-                            stage("Check: ${addonFolder}") {
-                                echo "Checking ${addonFolder} for updates (${dockerImage})..."
-                                sh "scripts/update-addon-version.sh \"${dockerImage}\" \"${addonFolder}\""
-                            }
-                        }
-                    }
+                    sh 'chmod +x run_scripts.sh'
+                    sh 'chmod +x scripts/*.sh'
+                    sh './run_scripts.sh'
                 }
             }
         }
