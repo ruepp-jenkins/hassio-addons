@@ -3,7 +3,7 @@ description: "Self-hosted database backup manager with scheduling, restore verif
 version: "3.42.0-1.0.0"
 slug: "databasus"
 url: "https://github.com/ruepp-jenkins/hassio-addons"
-image: "ruepp/hassio-image-databasus:latest"
+image: "ruepp/hassio-image-databasus:3.42.0"
 startup: services
 boot: auto
 arch:

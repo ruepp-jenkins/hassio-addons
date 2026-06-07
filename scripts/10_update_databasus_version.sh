@@ -16,11 +16,12 @@ COMBINED_VERSION="${UPSTREAM_VERSION}-${LOCAL_VERSION}"
 echo "Setting databasus version to: ${COMBINED_VERSION}"
 
 sed -i "s/^version: \".*\"/version: \"${COMBINED_VERSION}\"/" databasus/config.yaml
+sed -i "s|^image: \"ruepp/hassio-image-databasus:.*\"|image: \"ruepp/hassio-image-databasus:${UPSTREAM_VERSION}\"|" databasus/config.yaml
 
 if ! git diff --quiet databasus/config.yaml; then
     git add databasus/config.yaml
-    git commit -m "ci: update addon versions [skip ci]"
-    echo "Committed version update"
+    git commit -m "ci: update databasus to ${UPSTREAM_VERSION} (${LOCAL_VERSION})"
+    echo "Committed databasus update"
 else
-    echo "No version change detected"
+    echo "No changes detected for databasus"
 fi
