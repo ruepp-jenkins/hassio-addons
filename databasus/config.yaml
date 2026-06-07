@@ -1,6 +1,6 @@
 name: "Databasus"
 description: "Self-hosted database backup manager with scheduling, restore verification, and multi-storage support for PostgreSQL, MySQL, MariaDB, and MongoDB"
-version: "1.0.0"
+version: "3.42.0-1.0.0"
 slug: "databasus"
 url: "https://github.com/ruepp-jenkins/hassio-addons"
 image: "ruepp/hassio-image-databasus:latest"
