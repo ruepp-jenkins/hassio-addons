@@ -1,17 +1,17 @@
-# Internxt Home Assistant Add-ons
+# HA Add-ons by Stefan Ruepp
 
-This repository contains Home Assistant add-ons for Internxt services.
-
-## Add-ons
-
-### [Internxt WebDAV](./internxt-webdav)
-
-Mount your Internxt Drive as a WebDAV server for easy file access.
+Home Assistant add-ons maintained by Stefan Ruepp.
 
 ## Installation
 
-1. Navigate to **Settings** -> **Add-ons** -> **Add-on Store**
+1. Navigate to **Settings** → **Add-ons** → **Add-on Store**
 2. Click the menu icon (three dots) in the top right
 3. Select **Repositories**
-4. Add this repository: `https://github.com/MyUncleSam/hassio-addons`
-5. The add-on will appear in the store
+4. Add this repository: `https://github.com/ruepp-jenkins/hassio-addons`
+5. The add-ons will appear in the store
+
+## Add-ons
+
+### [Databasus](./databasus)
+
+Self-hosted database backup manager with scheduling, restore verification, retention policies, and multi-storage support. Supports PostgreSQL (12–18), MySQL (5.7, 8, 9), MariaDB (10–12), and MongoDB (4.2+).
