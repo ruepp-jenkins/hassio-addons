@@ -14,5 +14,5 @@ ports:
   4005/tcp: 4005
 ports_description:
   4005/tcp: "Databasus web dashboard"
-webui: "http://homeassistant.local:[PORT:4005]/"
+webui: "http://[HOST]:[PORT:4005]/"
 watchdog: "http://[HOST]:4005/"
