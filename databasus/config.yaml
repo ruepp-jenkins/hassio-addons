@@ -16,4 +16,4 @@ ports_description:
   4005/tcp: "Databasus web dashboard"
 ingress: true
 ingress_port: 4005
-watchdog: "http://[HOST]:[PORT]/"
+watchdog: "http://[HOST]:4005/"
