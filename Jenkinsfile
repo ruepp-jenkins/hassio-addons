@@ -33,7 +33,6 @@ pipeline {
                     sh 'chmod +x run_scripts.sh'
                     sh 'chmod +x scripts/*.sh'
                     sh './run_scripts.sh'
-                }
             }
         }
     }
