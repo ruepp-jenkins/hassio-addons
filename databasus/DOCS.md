@@ -3,7 +3,7 @@
 Self-hosted database backup manager with scheduling, restore verification, retention policies, and multi-storage support. Supports PostgreSQL (12–18), MySQL (5.7, 8, 9), MariaDB (10–12), and MongoDB (4.2+).
 
 Upstream project: [databasus/databasus](https://github.com/databasus/databasus)  
-Add-on image: [ruepp/hass-image-databasus](https://hub.docker.com/r/ruepp/hass-image-databasus)
+Add-on image: [ruepp/hassio-image-databasus](https://hub.docker.com/r/ruepp/hassio-image-databasus)
 
 ---
 
