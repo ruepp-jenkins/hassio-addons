@@ -9,8 +9,8 @@ Home Assistant add-ons repository. Each add-on lives in its own subdirectory (e.
 ## Add-on structure
 
 Each add-on directory contains:
-- `config.yaml` — HA add-on manifest; the `version` field here is what HA displays and must be `{upstream_image_version}-{addon_wrapper_version}`, and the `image` tag must match the upstream version alone
-- `version.txt` — the addon wrapper version (e.g. `1.0.0`); increment this when changing HA-specific config, not when the upstream image changes
+- `config.yaml` — HA add-on manifest. The `version` field is used by the Supervisor **as the Docker image tag**, so it must equal the upstream image tag exactly (e.g. `3.42.0`). The `image` field must be **tagless** (e.g. `ruepp/hassio-image-databasus`) — the Supervisor pulls `{image}:{version}`. Do NOT put a tag in `image` or a `-{wrapper}` suffix in `version`; either one fails schema validation and the add-on silently disappears from the store.
+- `version.txt` — the addon wrapper version (e.g. `1.0.0`); increment this when changing HA-specific config, not when the upstream image changes. This is tracking/changelog metadata only — it is **not** written into the `version` field (HA has no separate field for it).
 - `CHANGELOG.md`, `DOCS.md`, `translations/`, `icon.png`, `logo.png`
 
 ## Automation
@@ -30,8 +30,8 @@ Create `scripts/NN_update_<addon>_version.sh` (numeric prefix controls execution
 
 Pattern (see `scripts/10_update_databasus_version.sh`):
 1. `curl -sf <latest_version_url> | tr -d '[:space:]'` → upstream version
-2. `cat <addon>/version.txt | tr -d '[:space:]'` → wrapper version
-3. Update `config.yaml` `version` field to `${UPSTREAM}-${LOCAL}` and `image` tag to `${UPSTREAM}`
+2. `cat <addon>/version.txt | tr -d '[:space:]'` → wrapper version (used only in the commit message for traceability)
+3. Update `config.yaml` `version` field to `${UPSTREAM}` (the `image` field stays tagless and is never rewritten)
 4. `git diff --quiet <addon>/config.yaml` — if changed, `git add` and `git commit -m "ci: update <addon> to ${UPSTREAM} (${LOCAL})"`
 
 Scripts run from the repo root, so use relative paths like `databasus/config.yaml`.

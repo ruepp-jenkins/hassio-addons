@@ -12,11 +12,12 @@ if [ -z "$LOCAL_VERSION" ]; then
     exit 1
 fi
 
-COMBINED_VERSION="${UPSTREAM_VERSION}-${LOCAL_VERSION}"
-echo "Setting databasus version to: ${COMBINED_VERSION}"
+# HA uses the `version` field as the Docker image tag, so it must equal the
+# upstream tag exactly. The image field stays tagless (Supervisor appends the
+# version as the tag). The wrapper version is tracked only in version.txt.
+echo "Setting databasus version to: ${UPSTREAM_VERSION}"
 
-sed -i "s/^version: \".*\"/version: \"${COMBINED_VERSION}\"/" databasus/config.yaml
-sed -i "s|^image: \"ruepp/hassio-image-databasus:.*\"|image: \"ruepp/hassio-image-databasus:${UPSTREAM_VERSION}\"|" databasus/config.yaml
+sed -i "s/^version: \".*\"/version: \"${UPSTREAM_VERSION}\"/" databasus/config.yaml
 
 if ! git diff --quiet databasus/config.yaml; then
     git add databasus/config.yaml
