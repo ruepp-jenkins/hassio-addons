@@ -11,7 +11,7 @@ Add-on image: [ruepp/hassio-image-databasus](https://hub.docker.com/r/ruepp/hass
 
 1. Start the add-on.
 2. Wait ~30–60 seconds for the internal database to initialise.
-3. Click **Open Web UI** in the add-on panel (ingress) or navigate to `http://homeassistant.local:4005` if you have enabled the port.
+3. Click **OPEN WEB UI** on the add-on page to open the dashboard in a new browser tab, or navigate directly to `http://homeassistant.local:4005`.
 4. Create your admin account on the first-run screen.
 5. Add your databases, configure storage destinations, and set backup schedules — all from within the Databasus web UI.
 

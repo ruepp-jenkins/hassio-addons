@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+- Removed Ingress embedding — Databasus does not render correctly inside Home Assistant's Ingress iframe
+- Added an "OPEN WEB UI" button that opens the dashboard in its own browser tab on port 4005
+- Direct port access on 4005 remains available
+
 ## 1.0.0
 
 - Initial release
